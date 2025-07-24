@@ -1,6 +1,6 @@
-# This is Kali docs
+# kali-docs
 
-Kali is my favorite distribution. Fast, reliable, extensible and full of useful tools.
+Kali is my Linux distribution of choice. Fast, reliable, extensible and full of useful tools.
 
 This project aims to address dealing with the specific nature of this distribution in common usage scenarios.
 
