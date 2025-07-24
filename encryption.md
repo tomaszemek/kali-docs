@@ -221,4 +221,5 @@ $ sudo su
 # reboot
 
 (after reboot, system will prompt password to the boot partition, which will after unlocking show GRUB menu and it will by default boot kernel with root volume being unlocked by key file from the initramfs; boot volume is first unlocked by passphrase during boot, but later again by key by systemd-cryptsetup, prior to mounting the /boot via fstab)
+
 ```
