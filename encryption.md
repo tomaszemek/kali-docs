@@ -1,3 +1,6 @@
+
+Last updated: 25-July-2025
+
 # Encryption
 
 ## Installing to encrypted volumes
@@ -100,7 +103,7 @@ $ sudo su
 # apt update && apt install systemd-cryptsetup
 ```
 
-Also, as Kali disables root account if user chose to create own user account during installation, the emergency rescue console that would allow manual opening of the boot volume cannot be launched during boot. One of the ways out if this is to reboot from the hanging boot attempt and modify the kernel cmdline in GRUB, add init=/bin/bash to able to access the root filesystem to disable mounting /boot in fstab.
+Also, as Kali disables root account if user chose to create own user account during installation, the emergency rescue console that would allow manual opening of the boot volume cannot be launched during boot. One of the ways out if this is to reboot from the hanging boot attempt and modify the kernel cmdline in GRUB, add init=/bin/bash and mount the root filesystem with rw to be able to edit fstab.
 
 ### Convert boot to LUKS1
 
@@ -221,5 +224,22 @@ $ sudo su
 # reboot
 
 (after reboot, system will prompt password to the boot partition, which will after unlocking show GRUB menu and it will by default boot kernel with root volume being unlocked by key file from the initramfs; boot volume is first unlocked by passphrase during boot, but later again by key by systemd-cryptsetup, prior to mounting the /boot via fstab)
-
 ```
+
+## Additional encrypted volumes
+
+Adding more encrypted volumes be like:
+
+1. (optional: cryptsetup benchmark)
+2. cryptsetup luksFormat
+3. cryptsetup luksOpen
+4. initialize with /dev/urandom
+5. add to crypttab 
+6. mkfs
+7. create mount point
+8. add fs to fstab
+9. generate key
+10. cryptsetup luksAddKey
+11. update crypttab
+
+Not sure if a device can be encrypted with LUKS on the go without data loss. Probably have to backup and restore.

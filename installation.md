@@ -1,4 +1,5 @@
-# Installation
+
+Last updated: 25-July-2025
 
 # Bare metal, AMD64
 
@@ -28,5 +29,10 @@ Launching the installer in MBR mode might end up installing GRUB in MBR mode too
 
 [Encryption](encryption.md)
 
+## Hibernation and swap
 
+When installing on laptop, hibernation might come handy.
+It is necessary to have a dedicated partition to hibernate to.
+
+After that, system needs to be setup to resume from that partition eventually.
 
