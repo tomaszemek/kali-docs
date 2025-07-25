@@ -140,7 +140,7 @@ $ sudo apt-get update && sudo apt-get install firefox
 $ sudo apt purge firefox-esr
 ```
 
-### Node.js
+## Node.js
 
 Via NVM.
 
@@ -151,7 +151,7 @@ $ curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.40.3/install.sh | bas
 $ nvm install 24
 ```
 
-### Code:
+## Code:
 
 Possibly already installed as code-oss.
 Launcher might be missing but the program might be already installed:
