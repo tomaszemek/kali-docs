@@ -69,10 +69,22 @@ Also, the stable release has security updates repository, which can be also adde
 
 ## VirtualBox
 
-There is packaged version of Virtualbox in Kali repository and it is preferred.
+### Kali version
 
-If you rather want to download latest greatest from Oracle directly, you might hit a conflict on libvpx7, which is not available in Kali repository.
-It is available in Debian stable repository, so you can add that one.
+There is packaged version of Virtualbox in Kali repository, relatively recent and it is preferred to use that one as it is well integrated to the rest of the distribution.
+
+After installation, add yourself to the users group:
+
+```
+$ sudo usermod -a -G vboxusers $USER
+```
+
+In order to apply the group membership, logout/login shall work, but sometimes it won't and reboot is necessary.
+
+### Oracle version
+
+Alternatively, if you really want to stick to the latest greatest from Oracle directly, you might hit a conflict on libvpx7 and other dependencies, which are not available in Kali repository.
+Those dependencies are however available in Debian stable repository, so you can add that one:
 
 ```
 (/etc/apt/sources.list.d/bookworm.list)
@@ -112,3 +124,43 @@ $ sudo usermod -a -G docker $USER
 
 In order to apply the group membership, logout/login shall work, but sometimes it won't and reboot is necessary.
 
+## Firefox
+
+Kali comes with Firefox-ESR by default, which is bit outdated.
+
+Switch to recent Firefox:
+
+```
+$ (optional, run gpg at least once, if on fresh installation) gpg
+$ wget -q https://packages.mozilla.org/apt/repo-signing-key.gpg -O- | sudo tee /etc/apt/keyrings/packages.mozilla.org.asc > /dev/null
+$ gpg -n -q --import --import-options import-show /etc/apt/keyrings/packages.mozilla.org.asc | awk '/pub/{getline; gsub(/^ +| +$/,""); if($0 == "35BAA0B33E9EB396F59CA838C0BA5CE6DC6315A3") print "\nThe key fingerprint matches ("$0").\n"; else print "\nVerification failed: the fingerprint ("$0") does not match the expected one.\n"}'
+$ echo "deb [signed-by=/etc/apt/keyrings/packages.mozilla.org.asc] https://packages.mozilla.org/apt mozilla main" | sudo tee -a /etc/apt/sources.list.d/mozilla.list > /dev/null
+$ echo '\nPackage: *\nPin: origin packages.mozilla.org\nPin-Priority: 1000\n' | sudo tee /etc/apt/preferences.d/mozilla
+$ sudo apt-get update && sudo apt-get install firefox
+$ sudo apt purge firefox-esr
+```
+
+### Node.js
+
+Via NVM.
+
+This example install version 24:
+
+```
+$ curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.40.3/install.sh | bash \. "$HOME/.nvm/nvm.sh"
+$ nvm install 24
+```
+
+### Code:
+
+Possibly already installed as code-oss.
+Launcher might be missing but the program might be already installed:
+
+```
+$ code   
+┏━(Message from Kali developers)
+┃ code is not the binary you may be expecting.
+┃ You are looking for \"code-oss\"
+┃ Starting code-oss for you...
+┗━
+```
