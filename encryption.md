@@ -228,7 +228,7 @@ $ sudo su
 
 ## Additional encrypted volumes
 
-Adding more encrypted volumes be like:
+Adding more encrypted volumes be like (for more details see above in the 'convert boot to LUKS1'):
 
 1. (optional: cryptsetup benchmark)
 2. cryptsetup luksFormat

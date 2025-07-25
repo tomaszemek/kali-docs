@@ -1,3 +1,6 @@
+
+Last updated: 25-July-2025
+
 # kali-docs
 
 Kali is my Linux distribution of choice. Fast, reliable, extensible and full of useful tools.

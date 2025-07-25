@@ -32,7 +32,9 @@ Launching the installer in MBR mode might end up installing GRUB in MBR mode too
 ## Hibernation and swap
 
 When installing on laptop, hibernation might come handy.
-It is necessary to have a dedicated partition to hibernate to.
+It is necessary to have a dedicated partition to hibernate to which is large enough to contain memory contents plus some additional overhead.
 
 After that, system needs to be setup to resume from that partition eventually.
+
+Details on how to setup this will follow.
 
