@@ -111,7 +111,7 @@ Reboot and make sure everything works automatically as expected. If not fix it n
 
 Notes: 
 
--It might occur that the cryptsetup luksFormat command in the following block refuses to act due to device in use. I tried to find the culprit but haven't. The device was unmounted and there was no open handle to it, yet no chance. I personally suspect VirtualBox to be causing it somehow as without Virtualbox installed there was no issue.
+- It might occur that the cryptsetup luksFormat command in the following block refuses to act due to device in use. I tried to find the culprit but haven't. The device was unmounted and there was no open handle to it, yet no chance. I personally suspect VirtualBox to be causing it somehow as without Virtualbox installed there was no issue.
 
 Warning:
 
