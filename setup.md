@@ -1,5 +1,5 @@
 
-Last updated: 25-July-2025
+Last updated: 27-July-2025
 
 # System
 
@@ -73,13 +73,25 @@ Also, the stable release has security updates repository, which can be also adde
 
 There is packaged version of Virtualbox in Kali repository, relatively recent and it is preferred to use that one as it is well integrated to the rest of the distribution.
 
-After installation, add yourself to the users group:
+It can be installed as such:
 
 ```
+$ sudo apt update
+$ sudo apt install linux-headers-amd64
+$ sudo apt install virtualbox
+$ sudo apt install virtualbox-ext-pack
 $ sudo usermod -a -G vboxusers $USER
 ```
 
 In order to apply the group membership, logout/login shall work, but sometimes it won't and reboot is necessary.
+
+Notes: 
+
+- With this version, I'm not getting stack traces in dmesg, as I used to get otherwise when using Oracle version
+- With this version of Virtualbox, I was having sometimes situation when the kernel modules were not loaded on boot and I wasn't able to run machines. Had to reboot in order to get it working again. Haven't found the root cause yet.
+- With this version of Virtualbox, there are weird messages shown during update-initramfs. Haven't found the root cause yet.
+- With this version of Virtualbox, I wasn't able to convert boot partition to LUKS1 as the device was still in use after unmounting. Haven't found the root cause yet.
+
 
 ### Oracle version
 
