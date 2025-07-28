@@ -1,5 +1,5 @@
 
-Last updated: 27-July-2025
+Last updated: 28-July-2025
 
 # System
 
@@ -87,10 +87,10 @@ In order to apply the group membership, logout/login shall work, but sometimes i
 
 Notes: 
 
-- With this version, I'm not getting stack traces in dmesg, as I used to get otherwise when using Oracle version
-- With this version of Virtualbox, I was having sometimes situation when the kernel modules were not loaded on boot and I wasn't able to run machines. Had to reboot in order to get it working again. Haven't found the root cause yet.
-- With this version of Virtualbox, there are errors shown during update-initramfs (libkmod, conf_files_filter_out, Directories inside directories are not supported, /etc/modprobe.d/virtualbox-dkms.conf). Haven't found the root cause yet.
-- With this version of Virtualbox, I wasn't able to convert boot partition to LUKS1 as the device was still in use after unmounting. Haven't found the root cause yet.
+- With this version, I'm not getting stack traces in dmesg, as I used to get otherwise when using Oracle version. This is a good sign.
+- With this version of Virtualbox, I was having sometimes situation when the kernel modules were not loaded on boot and I wasn't able to run machines. Had to reboot in order to get it working again. Haven't found the root cause yet. I suspect either systemd or problems with initramfs update (see below) to be causing it, but haven't found any evidence for either of them. 
+- With this version of Virtualbox, there are errors shown during update-initramfs (libkmod, conf_files_filter_out, Directories inside directories are not supported, /etc/modprobe.d/virtualbox-dkms.conf). The root cause seem to be related to [bug in Debian](https://www.mail-archive.com/debian-bugs-dist@lists.debian.org/msg2037567.html).
+- With this version of Virtualbox, I wasn't able to convert boot partition to LUKS1 as the device was still in use after unmounting. Haven't found the root cause yet. I personally suspect that Virtualbox is somehow causing it but haven't found a way how it's causing it.
 
 
 ### Oracle version
