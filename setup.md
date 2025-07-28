@@ -154,18 +154,23 @@ $ sudo apt purge firefox-esr
 
 ## Node.js
 
-Via NVM.
+Via [NVM](https://github.com/nvm-sh/nvm)
 
 This example install version 24:
 
 ```
-$ curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.40.3/install.sh | bash \. "$HOME/.nvm/nvm.sh"
+$ curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.40.3/install.sh | bash
+```
+
+Close the terminal and open new one (or source profile).
+
+```
 $ nvm install 24
 ```
 
 ## Code:
 
-Possibly already installed as code-oss.
+Possibly already available as code-oss [Code OSS Package information](https://www.kali.org/tools/code-oss/).
 Launcher might be missing but the program might be already installed:
 
 ```
